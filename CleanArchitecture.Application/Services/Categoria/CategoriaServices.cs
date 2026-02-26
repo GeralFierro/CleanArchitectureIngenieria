@@ -43,6 +43,7 @@ namespace CleanArchitecture.Application.Services.Categoria
             {
                 categoryDtos.Add(new CategoryDto
                 {
+                    Id = categoria.Id,
                     Name = categoria.Name
                 });
             }

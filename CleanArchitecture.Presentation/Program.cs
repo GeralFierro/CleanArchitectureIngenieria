@@ -1,3 +1,4 @@
+using CleanArchitecture.Application;
 using CleanArchitecture.Infrastructure;
 using CleanArchitecture.Presentation;
 
@@ -11,6 +12,7 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddConfigurationServices(builder.Configuration);
 builder.Services.AddInfrastructureServices();
+builder.Services.AddConfigurationServicesApp();
 
 var app = builder.Build();
 
