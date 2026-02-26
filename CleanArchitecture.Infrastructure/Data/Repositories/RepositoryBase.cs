@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace CleanArchitecture.Infrastructure.Data.Repositories
 {
@@ -58,6 +60,16 @@ namespace CleanArchitecture.Infrastructure.Data.Repositories
             // Marca la entidad como modificada en el DbSet.
             // UPDATE [Table] SET ... WHERE Id = @id se ejecutará cuando SaveChanges se llame en el contexto.
             _dbSet.Update(entity);
+        }
+
+        public int Save()
+        {
+            return _context.SaveChanges();
+        }
+
+        public Task<int> SaveAsync(CancellationToken cancellationToken = default)
+        {
+            return _context.SaveChangesAsync(cancellationToken);
         }
     }
 }

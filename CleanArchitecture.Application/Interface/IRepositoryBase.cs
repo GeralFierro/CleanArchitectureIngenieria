@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace CleanArchitecture.Application.Interface
 {
@@ -12,5 +14,7 @@ namespace CleanArchitecture.Application.Interface
         void Add(T entity);
         void Update(T entity);
         void Delete(int id);
+        int Save();
+        Task<int> SaveAsync(CancellationToken cancellationToken = default);
     }
 }
